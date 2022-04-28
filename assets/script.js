@@ -8,17 +8,41 @@ var timeBlockThree = document.getElementById("hr3pm");
 var timeBlockFour = document.getElementById("hr4pm");
 var timeBlockFive = document.getElementById("hr5pm");
 var timeBlockSix = document.getElementById("hr6pm");
+var textAreaEl = document.getElementsByClassName("time-block");
 
+// Add which day it is to top of scheduler
+var currentDay = moment().format("ddd, MMM D ");
+var currentDayElement = document.getElementById("currentDay");
+currentDayElement.innerText = currentDay
 
-// When 9 am save button is clicked save text in the 9am hour block 
+var currentTime = moment().format("H");
+
+var timeBlockElements = $(".textarea");
+
+    for (var i = 0; i < timeBlockElements.length; i++) {
+
+        var elementID = timeBlockElements[i].id;
+        
+        var backgroundEl = document.getElementById(timeBlockElements[i].id);
+
+        $(timeBlockElements[i].id).removeClass(".past .present .future");
+
+        if (elementID < currentTime) {
+            $(backgroundEl).addClass("past");
+        } else if (elementID > currentTime) {
+            $(backgroundEl).addClass("future");
+        } else {
+            $(backgroundEl).addClass("present");
+        }
+    }
+
 document.getElementById("9am").addEventListener("click", function(event) {
     event.preventDefault();
     var hrNineText = timeBlockNine.innerHTML;
     if (timeBlockNine.innerHTML === "") {
         alert("Please add something to save");
 
-    }
-    else {
+    } else {
         var blockNineTask = {
             hour: "9 am",
             text: hrNineText,
@@ -36,8 +60,7 @@ if (blockNineTask) {
     var savedTask = JSON.parse(localStorage.getItem("blockNineTask"));
     timeBlockNine.innerText = savedTask.text;
 
-}
-else {
+} else {
 
 }
 
@@ -46,8 +69,7 @@ document.getElementById("10am").addEventListener("click", function(event) {
     var hrTenText = timeBlockTen.innerHTML;
     if (timeBlockTen.innerHTML === "") {
         alert("Please add something to save");
-    }
-    else {
+    } else {
         var blockTenTask = {
             hour: "10 am",
             text: hrTenText,
@@ -61,8 +83,7 @@ var blockTenTask = localStorage.getItem("blockTenTask");
 if (blockTenTask) {
     var savedTask = JSON.parse(localStorage.getItem("blockTenTask"));
     timeBlockTen.innerText = savedTask.text;
-}
-else {
+} else {
 
 }
 
@@ -71,8 +92,7 @@ document.getElementById("11am").addEventListener("click", function(event) {
     var hrElevenText = timeBlockEleven.innerHTML;
     if (timeBlockEleven.innerHTML === "") {
         alert("Please add something to save");
-    }
-    else {
+    } else {
         var blockElevenTask = {
             hour: "11 am",
             text: hrElevenText,
@@ -86,8 +106,7 @@ var blockElevenTask = localStorage.getItem("blockElevenTask");
 if (blockElevenTask) {
     var savedTask = JSON.parse(localStorage.getItem("blockElevenTask"));
     timeBlockEleven.innerText = savedTask.text;
-}
-else {
+} else {
 
 }
 
@@ -96,8 +115,7 @@ document.getElementById("12pm").addEventListener("click", function(event) {
     var hrTwelveText = timeBlockTwelve.innerHTML;
     if (timeBlockTwelve.innerHTML === "") {
         alert("Please add something to save");
-    }
-    else {
+    } else {
         var blockTwelveTask = {
             hour: "12 pm",
             text: hrTwelveText,
@@ -111,8 +129,7 @@ var blockTwelveTask = localStorage.getItem("blockTwelveTask");
 if (blockTwelveTask) {
     var savedTask = JSON.parse(localStorage.getItem("blockTwelveTask"));
     timeBlockTwelve.innerText = savedTask.text;
-}
-else {
+} else {
 
 }
 
@@ -121,8 +138,7 @@ document.getElementById("1pm").addEventListener("click", function(event) {
     var hrOneText = timeBlockOne.innerHTML;
     if (timeBlockOne.innerHTML === "") {
         alert("Please add something to save");
-    }
-    else {
+    } else {
         var blockOneTask = {
             hour: "1 pm",
             text: hrOneText,
@@ -136,8 +152,7 @@ var blockOneTask = localStorage.getItem("blockOneTask");
 if (blockOneTask) {
     var savedTask = JSON.parse(localStorage.getItem("blockOneTask"));
     timeBlockOne.innerText = savedTask.text;
-}
-else {
+} else {
 
 }
 
@@ -146,8 +161,7 @@ document.getElementById("2pm").addEventListener("click", function(event) {
     var hrTwoText = timeBlockTwo.innerHTML;
     if (timeBlockTwo.innerHTML === "") {
         alert("Please add something to save");
-    }
-    else {
+    } else {
         var blockTwoTask = {
             hour: "2 pm",
             text: hrTwoText,
@@ -161,8 +175,7 @@ var blockTwoTask = localStorage.getItem("blockTwoTask");
 if (blockTwoTask) {
     var savedTask = JSON.parse(localStorage.getItem("blockTwoTask"));
     timeBlockTwo.innerText = savedTask.text;
-}
-else {
+} else {
 
 }
 
@@ -171,8 +184,7 @@ document.getElementById("3pm").addEventListener("click", function(event) {
     var hrThreeText = timeBlockThree.innerHTML;
     if (timeBlockThree.innerHTML === "") {
         alert("Please add something to save");
-    }
-    else {
+    } else {
         var blockThreeTask = {
             hour: "3 pm",
             text: hrThreeText,
@@ -186,8 +198,7 @@ var blockThreeTask = localStorage.getItem("blockThreeTask");
 if (blockThreeTask) {
     var savedTask = JSON.parse(localStorage.getItem("blockThreeTask"));
     timeBlockThree.innerText = savedTask.text;
-}
-else {
+} else {
 
 }
 
@@ -196,8 +207,7 @@ document.getElementById("4pm").addEventListener("click", function(event) {
     var hrFourText = timeBlockFour.innerHTML;
     if (timeBlockFour.innerHTML === "") {
         alert("Please add something to save");
-    }
-    else {
+    } else {
         var blockFourTask = {
             hour: "4 pm",
             text: hrFourText,
@@ -211,8 +221,7 @@ var blockFourTask = localStorage.getItem("blockFourTask");
 if (blockFourTask) {
     var savedTask = JSON.parse(localStorage.getItem("blockFourTask"));
     timeBlockFour.innerText = savedTask.text;
-}
-else {
+} else {
 
 }
 
@@ -221,8 +230,7 @@ document.getElementById("5pm").addEventListener("click", function(event) {
     var hrFiveText = timeBlockFive.innerHTML;
     if (timeBlockFive.innerHTML === "") {
         alert("Please add something to save");
-    }
-    else {
+    } else {
         var blockFiveTask = {
             hour: "5 pm",
             text: hrFiveText,
@@ -236,35 +244,11 @@ var blockFiveTask = localStorage.getItem("blockFiveTask");
 if (blockFiveTask) {
     var savedTask = JSON.parse(localStorage.getItem("blockFiveTask"));
     timeBlockFive.innerText = savedTask.text;
-}
-else {
+} else {
 
 }
 
-document.getElementById("6pm").addEventListener("click", function(event) {
-    event.preventDefault();
-    var hrSixText = timeBlockSix.innerHTML;
-    if (timeBlockSix.innerHTML === "") {
-        alert("Please add something to save");
-    }
-    else {
-        var blockSixTask = {
-            hour: "6 pm",
-            text: hrSicText,
-        }
-        localStorage.setItem("blockSixTask", JSON.stringify(blockSixTask));
-    }
-})
 
-var blockSixTask = localStorage.getItem("blockSixTask");
-
-if (blockSixTask) {
-    var savedTask = JSON.parse(localStorage.getItem("blockSixTask"));
-    timeBlockSix.innerText = savedTask.text;
-}
-else {
-
-}
 
 
 
