@@ -8,7 +8,7 @@ textarea{
   background: transparent;
   border: none;
   resize: none;
-  color: #000000;
+  color: #0000cc;
   border-left: 1px solid black;
   padding: 10px;
 }
@@ -28,8 +28,7 @@ textarea{
 .time-block{
   text-align: center;
   border-radius: 15px;
-  color: #6600cc;
-
+  color: #9933ff;
 }
 
 .row {
@@ -40,7 +39,7 @@ textarea{
 
 .hour {
   background-color: #ffffff;
-  color: #000000;
+  color: #0000cc;
   border-top: 1px dashed #000000;
 }
 
@@ -63,7 +62,7 @@ textarea{
   border-left: 1px solid black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
-  background-color: #06AED5;
+  background-color: #0000cc;
   color: white;
 }
 
@@ -74,5 +73,9 @@ textarea{
 
 body {
   background-color: #6600cc;
+}
+
+.col-1 {
+  background-color: #0000cc;
 }
 
