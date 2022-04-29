@@ -7,6 +7,10 @@
 ## Description
 Create a simple calendar application that allows a user to save events for each hour of the day. This app will run in the browser and feature dynamically updated HTML and CSS powered by jQuery.
 
+https://blinkingheimdall.github.io/work-day-scheduler/
+![image](https://user-images.githubusercontent.com/87791295/166000432-436d2077-d95b-4dfa-bb72-9d9ac2b8ca81.png)
+
+
 ## Table of Contents
 - [License](#license)
 - [Installation](#installation)
