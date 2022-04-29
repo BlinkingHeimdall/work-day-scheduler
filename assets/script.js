@@ -10,23 +10,30 @@ var timeBlockFive = document.getElementById("hr5pm");
 var timeBlockSix = document.getElementById("hr6pm");
 var textAreaEl = document.getElementsByClassName("time-block");
 
-// Add which day it is to top of scheduler
+// this add what day is current to the top of the page
 var currentDay = moment().format("ddd, MMM D ");
 var currentDayElement = document.getElementById("currentDay");
 currentDayElement.innerText = currentDay
 
+// this is used to change the background color of the time block based on current time
 var currentTime = moment().format("H");
 
+// this holds each hour and the text
 var timeBlockElements = $(".textarea");
 
+// this loop goes through all the elements with time block class
     for (var i = 0; i < timeBlockElements.length; i++) {
 
+        // this gets the id of all the elements based on current time
         var elementID = timeBlockElements[i].id;
         
+        // this uses id to find each element 
         var backgroundEl = document.getElementById(timeBlockElements[i].id);
 
+        // this changes teh id and teh color of each time block
         $(timeBlockElements[i].id).removeClass(".past .present .future");
 
+        // this applys the past present and future classes
         if (elementID < currentTime) {
             $(backgroundEl).addClass("past");
         } else if (elementID > currentTime) {
@@ -36,6 +43,7 @@ var timeBlockElements = $(".textarea");
         }
     }
 
+    // these save a task on each time block with the button
 document.getElementById("9am").addEventListener("click", function(event) {
     event.preventDefault();
     var hrNineText = timeBlockNine.innerHTML;
